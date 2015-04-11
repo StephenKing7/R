@@ -25,6 +25,7 @@ var(x)
 cor(x,y)
 cov(x,y)
 
+Casting From One Type To Another
 as.character(x)
 as.complex(x)
 as.numeric(x)
@@ -55,6 +56,11 @@ subset(myData, colName > 10, select=c(colName1, colName2)
 
 summary(myData)  #  calculates summary statistics for data
 
+cor.test(x,y)  # calculate the p-value and confidence interval of the correlation of normally distributed populations
+cor.test(x,y, method="Spearman")  #  calculate the p-value and confidence interval of the correlation of nonnormally distributed populations
+
+t.test(x,y)  # compute a p-value to know if two populations could have the same mean
+
 barplot(x, col='slategray3')
 
 h <- hist(lynx, breaks = 11, 
@@ -83,13 +89,10 @@ curve(dnorm(x, mean = mean(lynx), sd = sd(lynx)),
 
 Forward Stepwise Multiple Regression:
 reg0 <- lm(RTEN ~ 1, data = USJudgeRatings)
-
 regf <- step(reg0, direction = "forward", scope = (~ CONT + INTG + DMNR + DILG + CFMG + DECI + PREP + FAMI + ORAL + WRIT + PHYS), data = USJudgeRatings, trace = 0)
-
 
 Backward Stepwise Multiple Regression:
 reg1 <- lm(RTEN ~ CONT + INTG + DMNR + DILG + CFMG + DECI + PREP + FAMI + ORAL + WRIT + PHYS, data = USJudgeRatings)
-
 regb <- step(reg1, direction = "backward", trace = 0)
 
 pnorm(q = 0, mean = , sd = , lower.tail = FALSE)  # what are the chances that the data is > 0
@@ -99,3 +102,15 @@ library(reshape)
 Target <- subset(mydata, Target == "Target", select = c(Vet_Locator, Care_Services, Communicate, Dog_Parks, Venues, Pet_Share, Breed_Info))
 T <- melt(Target)
 T <- pairwise.t.test(T$value, T$variable, p.adjust = "none") # test for statistical significant
+
+Connect R to MySQL
+mydb <- dbConnect(MySQL(), user='root', password=NULL, host='127.0.0.1', port=3306, dbname='test')
+db1 <- dbGetQuery(mydb, 'Select * FROM DEPT')
+
+dbDisconnect(mydb)  #  close the connection to database
+dbExistsTable(mydb)  #  returns TRUE or FALSE
+dbListTables(mydb)  #  list all tables in database
+dbListFields(mydb)  #  list all columns in database
+dbWriteTable(mydb)  #  stores a dataframe in a database
+
+
