@@ -1,0 +1,9 @@
+Connect R to MySQL
+mydb <- dbConnect(MySQL(), user='root', password=NULL, host='127.0.0.1', port=3306, dbname='test')
+db1 <- dbGetQuery(mydb, 'Select * FROM DEPT')
+
+dbDisconnect(mydb)  #  close the connection to database
+dbExistsTable(mydb)  #  returns TRUE or FALSE
+dbListTables(mydb)  #  list all tables in database
+dbListFields(mydb)  #  list all columns in database
+dbWriteTable(mydb)  #  stores a dataframe in a database
