@@ -26,6 +26,9 @@ seq(from=0, to=100, length.out=5)
 
 rep(pi, times=5)
 
+attach(myData)
+subset(myData, colName > 10, select=c(colName1, colName2)
+
 barplot(x, col='slategray3')
 
 h <- hist(lynx, breaks = 11, 
