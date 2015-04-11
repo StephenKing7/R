@@ -6,12 +6,13 @@ source('myScript.R')  # read and execute text file
 str(dataset)  # get information about dataset
 
 write.csv(x, file='filename', row.names=FALSE)  # save to csv format
-read.csv('filename', header=FALSE, as.is=TRUE)  # read csv files
-read.csv('http://www.example.com/download/data.csv')  # read directly from Web
-read.table('filename', sep='\t', header=TRUE) # read tabular data
-read.table('http://www.example.com/download/data.csv') # read directly from Web
+mydata <- read.csv('filename', header=FALSE, as.is=TRUE)  # read csv files
+mydata <- read.csv('http://www.example.com/download/data.csv')  # read directly from Web
+mydata <- read.table("~/Desktop/Data.txt", header = TRUE, sep = "\t") # read tabular data
+mydata <- read.table('http://www.example.com/download/data.csv') # read directly from Web
 
 rm() #removes variables from workspace
+rm(list = ls())
 
 Simple Statistics:
 mean(x, na.rm=TRUE)  #override NA values
@@ -68,5 +69,8 @@ regb <- step(reg1, direction = "backward", trace = 0)
 
 pnorm(q = 0, mean = , sd = , lower.tail = FALSE)  # what are the chances that the data is > 0
 
-
-
+Pairwise T Test
+library(reshape)
+Target <- subset(mydata, Target == "Target", select = c(Vet_Locator, Care_Services, Communicate, Dog_Parks, Venues, Pet_Share, Breed_Info))
+T <- melt(Target)
+T <- pairwise.t.test(T$value, T$variable, p.adjust = "none") # test for statistical significant
