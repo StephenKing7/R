@@ -25,6 +25,14 @@ var(x)
 cor(x,y)
 cov(x,y)
 
+as.character(x)
+as.complex(x)
+as.numeric(x)
+as.integer(x)
+as.logical(x)
+
+runif(1)  # generate one uniform random number between 0 and 1
+
 seq(from=0, to=20, by=5)
 seq(from=0, to=100, length.out=5)
 
@@ -36,8 +44,16 @@ dim(A) <- c(2,3)  # create a matrix with 2 rows and 3 columns
 C <- list(1, 2, 3, "X", "Y", "Z")
 dim(C) <- c(2,3) #  turn a list into a matrix with 2 rows and 3 columns
 
+lst[[n]]  #  this is an element - the nth element of lst
+lst[n]  #  this is a list, not an element
+
+all.cols <- cbind(dfrm1, dfrm2)  #  combine dataframes side by side
+all.rows <- rbind(dfrm1, dfrm2)  #  stack the rows of two dataframes
+
 attach(myData)
 subset(myData, colName > 10, select=c(colName1, colName2)
+
+summary(myData)  #  calculates summary statistics for data
 
 barplot(x, col='slategray3')
 
