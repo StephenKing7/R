@@ -3,6 +3,9 @@ library()  # see list of installed packages
 install.packages('packagename')  #install a package
 source('myScript.R')  # read and execute text file
 
+x <- 1 # assign local variable
+x <<- 1 # assign global variable
+
 str(dataset)  # get information about dataset
 
 write.csv(x, file='filename', row.names=FALSE)  # save to csv format
