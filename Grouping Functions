@@ -22,4 +22,5 @@ x <- list(a=1, b=1:3, c=10:100)
 sapply(x, FUN=length)  #  calculate the length of each element in list - return vector
 sapply(x, FUN=sum)  #  calculate the sum of each element in list - return vector
 
-
+mapply - when you have several data structures (e.g. vectors, lists) and you want to apply a function to the 1st elements of each, and then the 2nd elements of each, etc., coercing the result to a vector/array as in sapply
+mapply(sum, 1:5, 1:5, 1:5)
