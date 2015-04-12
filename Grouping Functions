@@ -24,3 +24,9 @@ sapply(x, FUN=sum)  #  calculate the sum of each element in list - return vector
 
 mapply - when you have several data structures (e.g. vectors, lists) and you want to apply a function to the 1st elements of each, and then the 2nd elements of each, etc., coercing the result to a vector/array as in sapply
 mapply(sum, 1:5, 1:5, 1:5)
+mapply(rep, 1:4, 4:1)
+
+aggregate - splits data into subsets and performs summary statistics
+aggregate(x, by, FUN)
+
+subset(mydata, mydata$col1 == x, select=c(col2, col3))  #  return columns 2 and 3 where col1 = value x
