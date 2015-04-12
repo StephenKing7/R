@@ -1,0 +1,25 @@
+apply - when you want to apply a function to the rows or columns of a matrix
+
+m <- matrix(seq(1,20), 4, 5)  #  create a column-wise matrix with 4 rows and 5 columns
+apply(m, 1, min)  #  return the min value across all rows (1 denotes 'row')
+apply(m, 2, max)  #  return the max value across all columns (2 denotes 'column)
+
+colMeans(m)
+rowMeans(m)
+colSums(m)
+rowSums(m)
+
+lapply - when you want to apply a function to each element of a list in turn and get a list back
+
+x <- list(a=1, b=1:3, c=10:100)
+lapply(x, FUN=length)  #  caculate the length of each element in list - return list
+lapply(x, FUN=sum)  #  calculate the sum of each element in list - return list
+
+sapply - when you want to apply a function to each element of a list in turn, but you want to get a vector back.. not a list
+  use 'sapply' instead of 'unlist(lapply(...))'
+
+x <- list(a=1, b=1:3, c=10:100)
+sapply(x, FUN=length)  #  calculate the length of each element in list - return vector
+sapply(x, FUN=sum)  #  calculate the sum of each element in list - return vector
+
+
