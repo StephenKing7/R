@@ -1,0 +1,40 @@
+A high-level graphics function starts a new graph.  A low-level graphics function cannot start a new graph - it adds something to an existing graph.  Thus, you must call a high-level graphics routine before calling a low-level graphics routine.
+
+Examples of high level graphics:
+
+plot  #  generic plotting function
+boxplot  #  create a box plot
+hist  #  create a histogram
+qqnorm  #  create a quantile-quantile (Q-Q) plot
+curve  #  graph a function
+
+Examples of low level graphics:
+
+points  #  add points
+lines  #  add lines
+abline  #  add a straight line
+segments  #  add line segments
+polygon  #  add a closed polygon
+text  #  add text
+
+Plotting A Two Column Dataframe
+plot(x,y)  #  If your data only has two columns, then R will assume that you want them plotted along the x and y axes
+plot(x, main="The Title", xlab="X Axis Label", ylab="Y Axis Label")
+grid()  #  draw a grid
+points(cars)
+
+Unique Plotting Characters
+plot(iris$Petal.Length, iris$Petal.Width, pch=as.integer(iris$Species))  #  cast id as integer and distinguish using 'pch'
+
+Adding A Legend (x & y are the coordinates of the legend box)
+legend(x, y, labels, pch=c(pointtype1, pointtype2,..))  #  legend for points
+legend(x, y, labels, lty=c(linetype1, linetype2,..))  #  legend for lines according to line type
+legend(x, y, labels, lwd=c(width1, width2,..))  #  legend for lines according to line width
+legend(x, y, labels, col=c(color1, color2,..))  #  legend for colors
+
+Creating An Adaptable Legend
+f <- factor(iris$Species)
+plot(iris$Petal.Length, iris$Petal.Width, pch=as.integer(f))
+legend(x, y, as.character(levels(f)), pch=1:length(levels(f)))
+
+
